@@ -1,0 +1,60 @@
+import Model
+
+module Interface
+( Interface 
+) where
+
+
+data Input = Input a 
+
+-- class Interface a where
+--    update :: Input -> Mo
+
+-- Game vs 
+
+-- Interface Model
+-- data Interface = Interface m 
+
+-- Something IS an interface if it accepts input and returns output
+-- That's not how this works. I want interface to be a typeclass, not
+-- a data class
+
+-- class (Eq a) => Num a where
+-- class Eq a where  
+
+-- This is my problem...
+-- typeclasses define operations on things
+-- an interface... what does an interface do?
+-- And interface takes a model and an input
+-- An interface selects a model
+
+-- View -> Interface -> Model
+
+-- An interface 
+
+{- 
+    That's the OO way of thinking about it. An Interface transforms one
+    input into another input. That's it.
+
+    WRONG. An interface IS a thing. It has data. THAT's the problem. My
+    thinking is getting murky here.
+
+
+    Grrrrrr
+
+    An interface is a thing that, given data and an input, will produce
+    another input.
+
+    Hooooooo boy, I'm really going to have to stretch my brain to get into
+    this style of programming. I know I'll dig it, though.
+
+    Input -> Input
+-}
+
+-- An Interface is a collection of state that, given an input,
+-- produces either a new ball of state, or else
+class Interface a where
+    select :: a -> Input -> Either a (Model -> Model) 
+
+-- but I don't want it to produce an input; I want it to produce
+-- a FUNCTION from a model to a model
