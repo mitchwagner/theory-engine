@@ -1,4 +1,4 @@
-import Engine.Utility.DFA
+import Engine.Server.Interface
 
 -- Instantiate Client
 -- Instantiate Server
