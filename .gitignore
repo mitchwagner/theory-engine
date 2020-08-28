@@ -1,3 +1,6 @@
 Main
 *.o
 *.hi
+
+.stack-work/
+*~
