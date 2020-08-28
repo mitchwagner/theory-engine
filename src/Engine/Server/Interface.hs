@@ -8,7 +8,7 @@ module Engine.Server.Interface
 import Data.Either
 import Engine.Utility.DFA
 
-data Input a = Input a
-
-class DFA a => Interface a where
-    select :: (DFA x) => x -> a -> Either a (x -> x)
+-- data Input a = Input a
+-- 
+-- class DFA a => Interface a where
+--     select :: (DFA x) => x -> a -> Input c -> Either a (x -> x)
