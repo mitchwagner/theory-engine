@@ -1,6 +1,7 @@
-module Main where
+import Engine.Server.Interface
 
-import Lib
+-- Instantiate Client
+-- Instantiate Server
+main :: IO()
+main = do putStrLn "Hi!"
 
-main :: IO ()
-main = someFunc
