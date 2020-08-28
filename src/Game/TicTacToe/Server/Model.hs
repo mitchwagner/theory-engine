@@ -1,7 +1,7 @@
 {-
     Implements a Tic-tac-toe data model.
 -}
-module Game.TicTacToe.Model where
+module Game.TicTacToe.Server.Model where
 
 import Data.List
 

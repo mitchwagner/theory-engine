@@ -1,9 +1,7 @@
 {-
 An Interface is a DFA that maps input to functions on a Model.
 -}
-module Engine.Server.Interface
-( Interface
-) where
+module Engine.Server.Interface where
 
 import Data.Either
 import Engine.Utility.DFA
