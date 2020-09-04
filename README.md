@@ -81,3 +81,15 @@ shell should transition to.
 ### Client-Server Architecture
 
 TE is designed with a client-server architecture in mind.
+Turn-based strategy games in particular are excellent
+applications for such a design, as they are relatively, if not
+entirely, immune to the problems of latency.
+
+The architecture lends itself well to an open-source,
+collaborative project, as it encourages a strong decoupling of
+interface and game logic. This liberates clients to consume the
+game in whatever manner they see fit, whether that be via a
+command-line interface, a web browser, or a native user
+interface. By designing a game from the ground-up to adhere to a
+client-server architecture, the implementation of multiplayer is
+also made all the easier.
