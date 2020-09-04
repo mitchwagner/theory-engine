@@ -53,11 +53,17 @@ a model, and a table that describes tranformations to the model when the
 parser transitions states, i.e., 
 
 ```haskell
-data Machine a b c = Machine
-    { model :: c
+data Machine a b c
+    = MachineActive  (Active a b c)
+    | MachineStopped (Stopped c)
+
+data Active a b c = Active
+    { modelActive :: c
     , graph :: DFA.Parser a b
-    , table :: DFA.State a  -> DFA.Symbol b -> (c -> c)
+    , table :: DFA.State a -> DFA.Symbol b -> (c -> c)
     }
+
+data Stopped c = Stopped {modelStopped :: c}
 
 -- Here, a characterizes states, and b, symbols
 data Parser a b = Parser
