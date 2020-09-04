@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: eb78c8b3ddd387f3266c40f7a5f401a40f4ba1cdedcbcdeb33cfc0182d155c05
+-- hash: 9e3db72484cb040df1916bacd0ee715c06503a59b8b768aa984ee19d0fd71e49
 
 name:           theory-engine
 version:        0.1.0.0
@@ -27,9 +27,11 @@ source-repository head
 
 library
   exposed-modules:
+      Engine.Client.Interface
       Engine.Client.View
-      Engine.Server.Interface
+      Engine.Server.Game
       Engine.Utility.DFA
+      Engine.Utility.Machine
       Game.TicTacToe.Server.Model
   other-modules:
       Paths_theory_engine
