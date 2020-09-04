@@ -1,4 +1,4 @@
-import Engine.Server.Interface
+import Engine.Client.Interface
 
 -- Instantiate Client
 -- Instantiate Server
