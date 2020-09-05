@@ -1,0 +1,200 @@
+Menu <---> Play 
+^
+v
+Quit
+
+
+
+
+Play:
+
+
+SHIT THAT TANKS EVERYTHING
+
+What's the symbol for "play X in the top right?"
+
+This means we have to change our notion
+
+Gosh darn it... this means that we have to change our
+notion ONCE AGAIN of what is going on here.
+
+I was like "la di da, the interface has to have control over
+the model so it knows how to transform the model"
+
+Then I tossed the interface over to the client...
+
+So now, either every meaningful state change (cursor moved
+left, cursor moved right) is sent to the server, or
+
+... DAMN, how would that even work with a mouse???
+
+"Cursor moved... here"
+
+... Didn't I already say that the interface could send back
+a list of actions to the model? 
+
+
+
+Okay, so from now on, that's the bar we have to clear
+
+- can I have the client tell the server:
+  "select this square on the board and place a cross there"
+  and ...
+  "do it with a mouse jumping from point A to point b" 
+
+I might just have to abandon this idea, even though it's been
+fun...
+
+But again, that's separate from the INTERFACE.
+
+Hmph. It's looking like I need to be smarter about this.
+
+Ultimately, we need some way to tell the server the manner
+in which to transform the model.
+
+
+
+Client    |   Server
+
+       ------->
+    "place a cross on 2,2"
+
+       <--------
+    "that was valid"
+          or
+    "dirty cheater..."
+
+          |
+
+You can't properly communicate all of that in a single symbol.
+
+How about 
+- the Room /exposes/ functions... huh... huh...
+
+- The /game/ flows from one state to another. The DFA concept
+  still holds.
+
+- Right now, I have the Machine accept symbols and modify state
+
+- I'm wondering if I have that backwards now...
+
+
+Room right now: Machine with model, dfa, table
+
+    Symbol comes in, advances DFA, triggers table
+
+The model seems sound, but it requires countless symbols and states.
+That's the fundamental problem. I can move my mouse to one of a
+million+ pixels. That's a million valid transitions. In practice,
+that's a pain in the ass.
+
+
+A room should still have some notion of a DFA. But it's
+different, now.
+
+RPC comes in; {place x 3 3}
+
+
+What's the point of the DFA? It was supposed to SIMPLIFY THINGS
+by forcing us to say "this state, this symbol, this transition"
+
+... but it still CAN, if our SYMBOLS are COMPLEX SYMBOLS!!!!!!!
+
+BINGOOOOOOOOOOOOOOOOOOOOOoooooooooooooo
+
+{"jsonrpc": 2.0, 
+ "method": "place",
+ "params": {"symbol": "x", "row":"3", "col":"y"}
+}
+
+=>
+
+data JsonRpc Method
+
+Method
+    = Place XorO Int Int
+    | Restart 
+    | Quit
+
+Bingo, we've solved it. We're awesome, we are. Yes, we are.
+
+Symbols don't have to be stupid, finite little things like numbers
+or characters. They can be RICH and EXPRESSIVE and INFORM OUR
+FUNCTION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{"jsonrpc": 2.0, 
+ "method": "place",
+ "params": {"symbol": "x", "row":"3", "col":"y"}
+}
+
+
+
+ARGHHHHHHH but now we completely obviate the point of the DFA.
+Does a room/machine deserve to have a DFA as a top-level construct?
+
+
+The problem is that I can't tell what state to transition to until
+after computing the state of the model, right? In that sense, the
+DFA seems more a /part/ of the model than a separate piece from it.
+
+
+And it's fine to plop a DFA inside a model to keep track of things
+like that, but...
+
+the idea before was that we take a symbol, and a state, and
+we look up the function to transform the model.
+
+Now I'm saying, screw it- this is the function we are going
+to ask to use to transform for the model, and it will result
+in an updated state. It's totally inverted. Rather than symbols
+driving the transformation of the model via functions, functions
+are driving the transformation of the DFA via the symbols that
+result from them.
+
+But in that sense, saying that a model transformation has to
+return a symbol also feels a bit crass.
+
+So what have I returned to, then?
+
+RPC -> becomes a function
+
+This is frustrating, honestly. I have to figure this out.
+HOW to make this work... damn it anyway.
+
+
+
+Client    -----> RPCs ----->  Server
+
+Server processes it... 
+
+Delete square 4
+    -> Check: is this valid?
+    -> 
+
+My mistake was guessing explicitly modeling DFAs would be easier...
+
+
+Hmmm... there's a question of just exactly what should live
+client-side and server side.
+
+Theoretically, the server-side could send the front-end information
+like "what moves are available if I select this unit". 
+
+The more the client has to understand the model, the harder this
+is going to be...
+
+... let's start over? we haven't sunk too much time into this yet. 
