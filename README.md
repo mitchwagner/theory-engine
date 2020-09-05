@@ -11,6 +11,7 @@ those of
 
 - Chess
 - Checkers
+- Noughts and Crosses
 - Fire Emblem
 - Advance Wars
 - Civil War Generals
@@ -23,6 +24,12 @@ strives to do for turn-based strategy what Mario Maker has done
 for platformers, and what Stardew Valley did to farming sims.
 
 It's 2020. It's time the bar for these games was raised.
+
+## Theory
+
+The hypothesis motivating the Theory Engine is that an intuitive,
+rigorous foundation will both increase code quality and reduce
+the time to required to extend the engine's core capabilities.
 
 ## Structure
 
