@@ -36,8 +36,8 @@ the time to required to extend the engine's core capabilities.
 The foundation of the Theory Engine is a lean control-flow abstraction
 that captures the essence of what it means to be turn-based.
 
-The Theory Engine will (eventually) provide modules built on top of
-this foundation, including:
+The Theory Engine will (eventually) provide modules ("genre
+engines") built on top of this foundation, including:
 
 - Chess (demonstration)
 - Checkers (demonstration)
