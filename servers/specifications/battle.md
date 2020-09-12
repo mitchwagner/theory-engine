@@ -1,3 +1,0 @@
-# Battle
-
-The Ice Crest 
