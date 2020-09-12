@@ -1,6 +1,6 @@
 {
-  "name": "ice-crest-client",
-  "version": "0.0.1",
+  "name": "@pixel-renaissance/ice-crest-client",
+  "version": "0.0.2",
   "description": "Client for the Ice Crest Engine.",
   "main": "index.js",
   "scripts": {
