@@ -7,5 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Mitchell James Wagner",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "phaser": "^3.24.1"
+  }
 }
