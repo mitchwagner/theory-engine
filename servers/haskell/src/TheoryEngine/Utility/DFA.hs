@@ -13,7 +13,7 @@
     property that all final states are unambiguously final- there
     are no valid transitions out of them.
 -}
-module Engine.Utility.DFA where
+module TheoryEngine.Utility.DFA where
 
 data State a = State a
 

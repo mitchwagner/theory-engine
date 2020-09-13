@@ -5,9 +5,9 @@ transforms the model.
 
 {-# LANGUAGE DuplicateRecordFields #-}
 
-module Engine.Utility.Machine where
+module TheoryEngine.Utility.Machine where
 
-import Engine.Utility.DFA as DFA
+import TheoryEngine.Utility.DFA as DFA
 
 data Machine a b c
     = MachineActive  (Active a b c)
