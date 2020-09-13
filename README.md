@@ -25,9 +25,9 @@ for platformers, and what Stardew Valley did to farming sims.
 
 It's 2020. It's time the bar for these games was raised- the
 stories alone could stand a healthy dose of open and accessible
-competition. People are still doing ROM hacks, and there's really
-no excuse for the lack of supporting tooling. So, here it is, or
-at least here it will be, at last!
+competition. People still largely resort to ROM hacks to
+implement their own ideas, and to be frank, there's really no
+excuse for this. The Theory Engine will fix this.
 
 ## Theory
 
