@@ -23,7 +23,11 @@ aspects, from story-telling to gameplay. The Theory Engine
 strives to do for turn-based strategy what Mario Maker has done
 for platformers, and what Stardew Valley did to farming sims.
 
-It's 2020. It's time the bar for these games was raised.
+It's 2020. It's time the bar for these games was raised- the
+stories alone could stand a healthy death of open and accessible
+competition. People are still doing ROM hacks, and there's really
+no excuse for the lack of supporting tooling. So, here it is, or
+at least here it will be, at last!
 
 ## Theory
 
