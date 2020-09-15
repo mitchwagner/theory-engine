@@ -1,17 +1,15 @@
-{-
-    Turn-based strategy games can be succinctly described by
-    discrete finite automata; this module provides those
-    primitives.
+{- | Turn-based strategy games can be succinctly described by
+discrete finite automata; this module provides those primitives.
 
-    Note that DFAs as they are traditionally described (stopping
-    only when the input string is exhausted) are not practical
-    constructs for our purposes. Our input stream extends beyond
-    the lifetime of a single DFA, and we have no way to know when
-    we should stop evaluating one and start evaluating another.
+Note that DFAs as they are traditionally described (stopping only
+when the input string is exhausted) are not practical constructs
+for our purposes. Our input stream extends beyond the lifetime of
+a single DFA, and we have no way to know when we should stop
+evaluating one and start evaluating another.
 
-    Consequently, the DFAs this engine works with must have the
-    property that all final states are unambiguously final- there
-    are no valid transitions out of them.
+Consequently, the DFAs this engine works with must have the
+property that all final states are unambiguously final- there are
+no valid transitions out of them.
 -}
 module TheoryEngine.Utility.DFA where
 
@@ -31,24 +29,24 @@ type Accept a = State a -> Bool
 
 
 data DFA a b = DFA
-    { states     :: States a
-    , alphabet   :: Alphabet b
-    , transition :: Transition a b
-    , start      :: State a
-    , accept     :: Accept a
+    { dfaStates     :: States a
+    , dfaAlphabet   :: Alphabet b
+    , dfaTransition :: Transition a b
+    , dfaStart      :: State a
+    , dfaAccept     :: Accept a
     }
 
 class DfaLike a where
-    dfa_states     :: a -> [State x]
-    dfa_alphabet   :: a -> [Symbol y]
-    dfa_transition :: a -> (State x) -> (Symbol y) -> (State x)
-    dfa_start      :: a -> State x
-    dfa_accept     :: a -> (State x) -> Bool
+    dfaLikeStates     :: a -> [State x]
+    dfaLikeAlphabet   :: a -> [Symbol y]
+    dfaLikeTransition :: a -> (State x) -> (Symbol y) -> (State x)
+    dfaLikeStart      :: a -> State x
+    dfaLikeAccept     :: a -> (State x) -> Bool
 
 
 data Parser a b = Parser
-    { state :: (State a)
-    , dfa   :: (DFA a b)
+    { parserState :: (State a)
+    , parserDfa   :: (DFA a b)
     }
 
 initParser :: DFA a b -> Parser a b
